@@ -1,0 +1,24 @@
+name: 'Manual Run'
+
+run-name: '${{ github.event.inputs.env}} - ${{ github.event.inputs.version}} - ${{ github.workflow }}'
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: number
+        required: false
+        default: 'upgrade'
+      env:
+        type: environment
+        required: true
+        default: 'dev'
+
+jobs:
+  docker_run:
+    uses: mars-office/.github/.github/workflows/docker-run.yaml@main
+    secrets: inherit
+    with:
+      version: '${{ github.event.inputs.version }}'
+      env: ${{ github.event.inputs.env }}
+      imageName: 'huna-automation'
