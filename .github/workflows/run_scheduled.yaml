@@ -1,0 +1,17 @@
+name: 'Scheduled Run'
+
+run-name: 'dev - latest - ${{ github.workflow }}'
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+    
+
+jobs:
+  docker_run:
+    uses: mars-office/.github/.github/workflows/docker-run.yaml@main
+    secrets: inherit
+    with:
+      version: latest
+      env: dev
+      imageName: 'huna-automation'
