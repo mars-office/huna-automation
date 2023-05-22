@@ -20,7 +20,6 @@ RUN npm install
 
 COPY tests/ /app/tests/
 COPY tsconfig.json /app/
-COPY config.toml /app/
 
 # Install the dependencies in Node environment
 RUN npm install
