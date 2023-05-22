@@ -1,0 +1,20 @@
+name: 'Docker build and run'
+
+run-name: '0.0.${{ github.run_number }} - ${{ github.workflow }}'
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+jobs:
+  docker_build_push:
+    uses: mars-office/.github/.github/workflows/docker.yaml@main
+    secrets: inherit
+    with:
+      version: '0.0.${{ github.run_number }}'
