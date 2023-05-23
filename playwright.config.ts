@@ -12,6 +12,8 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         storageState: ".auth/user.json",
+        launchOptions: {
+        }
       },
       dependencies: ["setup"],
     },

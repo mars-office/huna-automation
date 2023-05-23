@@ -1,4 +1,4 @@
-import { test as setup } from "@playwright/test";
+import { test as setup, expect } from "@playwright/test";
 import endpoint from "./configTypes";
 
 const authFile = ".auth/user.json";
@@ -15,6 +15,9 @@ setup("authenticate", async ({ page }) => {
   await page.getByLabel("Password").fill(process.env.HUNA_LOGIN_PASSWORD!);
   await page.getByLabel("Password").press("Enter", {delay: 100});
   await page.getByRole("button", { name: "Yes" }).click({delay: 1000});
-  await page.waitForURL(endpoint.HUNA_URL);
+  await page.waitForURL(endpoint.HUNA_URL, {
+    waitUntil: 'networkidle'
+  });
+  await page.waitForTimeout(1000);
   await page.context().storageState({ path: authFile });
 });
