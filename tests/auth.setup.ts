@@ -18,6 +18,5 @@ setup("authenticate", async ({ page }) => {
   await page.waitForURL(endpoint.HUNA_URL, {
     waitUntil: 'networkidle'
   });
-  await page.waitForTimeout(1000);
   await page.context().storageState({ path: authFile });
 });
