@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test --browser=chromium",
-    "test-html-report": "playwright test --browser=chromium --reporter=html",
-    "test-json-report": "PLAYWRIGHT_JSON_OUTPUT_NAME=results.json playwright test --browser=chromium --reporter=json"
+    "test": "playwright test",
+    "test-html-report": "playwright test --reporter=html",
+    "test-json-report": "PLAYWRIGHT_JSON_OUTPUT_NAME=results.json playwright test --reporter=json"
   },
   "author": "",
   "license": "ISC",
