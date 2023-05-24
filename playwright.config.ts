@@ -5,18 +5,26 @@ dotenv.config();
 
 export default defineConfig({
   projects: [
-    { name: "setup", testMatch: /.*\.setup\.ts/ },
+    { name: "setup", testMatch: /.*\.setup\.ts/, teardown: "teardown" },
 
     {
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
         storageState: ".auth/user.json",
-        launchOptions: {
-        }
+        launchOptions: {},
       },
       dependencies: ["setup"],
     },
-  ],
 
+    {
+      name: "teardown",
+      testMatch: /.*\.teardown\.ts/,
+      use: {
+        ...devices["Desktop Chrome"],
+        storageState: ".auth/user.json",
+        launchOptions: {},
+      },
+    },
+  ],
 });
