@@ -20,6 +20,7 @@ RUN npm install
 
 COPY tests/ /app/tests/
 COPY tsconfig.json /app/
+COPY playwright.config.ts /app/
 
 # Install the dependencies in Node environment
 RUN npm install
