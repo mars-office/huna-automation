@@ -18,6 +18,6 @@ jobs:
     uses: mars-office/.github/.github/workflows/docker-run.yaml@main
     secrets: inherit
     with:
-      version: '${{ github.event.inputs.version }}'
+      version: 'v${{ github.event.inputs.version }}'
       env: ${{ github.event.inputs.env }}
       imageName: 'huna-automation'

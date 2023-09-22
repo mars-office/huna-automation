@@ -17,7 +17,7 @@ jobs:
     uses: mars-office/.github/.github/workflows/docker.yaml@main
     secrets: inherit
     with:
-      version: '0.0.${{ github.run_number }}'
+      version: 'v0.0.${{ github.run_number }}'
       platforms: 'linux/amd64'
   snyk:
     uses: mars-office/.github/.github/workflows/snyk.yaml@main
@@ -29,4 +29,4 @@ jobs:
     secrets: inherit
     needs: [docker_build_push]
     with:
-      version: '0.0.${{ github.run_number }}'
+      version: 'v0.0.${{ github.run_number }}'
