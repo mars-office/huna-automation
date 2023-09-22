@@ -29,5 +29,4 @@ jobs:
     secrets: inherit
     needs: [docker_build_push]
     with:
-      version: 'v0.0.${{ github.run_number }}'
-      platform: 'linux/amd64'
+      version: '0.0.${{ github.run_number }}'
