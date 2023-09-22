@@ -18,7 +18,7 @@ jobs:
     secrets: inherit
     with:
       version: '0.0.${{ github.run_number }}'
-      platforms: 'linux/amd64'
+      platforms: 'linux/amd64,linux/arm64'
   snyk:
     uses: mars-office/.github/.github/workflows/snyk.yaml@main
     permissions:
