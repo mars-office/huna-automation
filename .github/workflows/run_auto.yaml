@@ -16,6 +16,7 @@ jobs:
       matrix:
         env: ['dev', 'uat', 'prod']
     uses: mars-office/.github/.github/workflows/docker-run.yaml@main
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     secrets: inherit
     with:
       version: 'v0.0.${{ github.event.workflow_run.run_number }}'
