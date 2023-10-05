@@ -1,5 +1,5 @@
 # Get the latest version of Playwright
-FROM mcr.microsoft.com/playwright:latest
+FROM mcr.microsoft.com/playwright:next-jammy-amd64
  
 # Set the work directory for the application
 WORKDIR /app
