@@ -19,6 +19,6 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     secrets: inherit
     with:
-      version: '0.0.${{ github.event.workflow_run.run_number }}'
+      version: 'v0.0.${{ github.event.workflow_run.run_number }}'
       env: ${{ matrix.env }}
       imageName: 'huna-automation'
