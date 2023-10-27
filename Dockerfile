@@ -8,11 +8,9 @@ WORKDIR /app
 # COPY the needed files to the app folder in Docker image
 COPY package.json /app/
 COPY package-lock.json /app/
-RUN npm install
-RUN npx playwright install chromium
 
 COPY tests/ /app/tests/
 COPY tsconfig.json /app/
 COPY playwright.config.ts /app/
-
+RUN npm install
 CMD npm run test
