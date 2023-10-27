@@ -7,7 +7,7 @@ setup("authenticate", async ({ page }) => {
   await page.goto(endpoint.HUNA_URL + '/settings');
   // Wait for the page to load
   await page.waitForLoadState("networkidle");
-  await page.getByRole("button", { name: "Log in with Microsoft" }).click();
+  await page.getByRole("button", { name: "Login with microsoft" }).click();
   await page.waitForURL(x => x.toString().startsWith("https://login.microsoftonline.com/"), {waitUntil: 'networkidle'});
   await page.getByLabel("Email, phone, or Skype").fill(process.env.HUNA_LOGIN_EMAIL!);
   await page.getByLabel("Email, phone, or Skype").press("Enter", {delay: 100});
