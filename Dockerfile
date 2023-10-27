@@ -9,7 +9,7 @@ WORKDIR /app
 COPY package.json /app/
 COPY package-lock.json /app/
 RUN npm install
-RUN npx playwright install
+RUN npx playwright install --with-deps chromium
 
 COPY tests/ /app/tests/
 COPY tsconfig.json /app/
