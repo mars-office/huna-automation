@@ -9,13 +9,10 @@ WORKDIR /app
 COPY package.json /app/
 COPY package-lock.json /app/
 RUN npm install
-RUN npx playwright install --with-deps chromium
+RUN npx playwright install chromium
 
 COPY tests/ /app/tests/
 COPY tsconfig.json /app/
 COPY playwright.config.ts /app/
-
-# Install the dependencies in Node environment
-RUN npm install
 
 CMD npm run test
