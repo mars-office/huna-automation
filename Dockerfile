@@ -1,6 +1,8 @@
 # Get the latest version of Playwright
 FROM mcr.microsoft.com/playwright:next
- 
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN groupadd -r playwright && useradd -r -g playwright playwright
 # Set the work directory for the application
 WORKDIR /app
  
