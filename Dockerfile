@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/playwright:next
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN groupadd -r pwuser && useradd -r -g pwuser -G audio,video pwuser \
+RUN groupadd -r pwuser && useradd -r -g pwuser pwuser \
     && mkdir -p /home/pwuser/Downloads \
     && chown -R pwuser:pwuser /home/pwuser
 USER pwuser
