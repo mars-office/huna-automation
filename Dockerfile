@@ -2,7 +2,6 @@
 FROM mcr.microsoft.com/playwright:next
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN useradd -rm -d /home/pwuser -s /bin/bash -g root -G sudo -u 1001 pwuser
 USER pwuser
 # Set the work directory for the application
 WORKDIR /home/pwuser
