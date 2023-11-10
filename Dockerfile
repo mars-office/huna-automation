@@ -1,5 +1,5 @@
 # Get the latest version of Playwright
-FROM jacoblincool/playwright:chromium
+FROM mcr.microsoft.com/playwright:next
  
 # Set the work directory for the application
 WORKDIR /app
