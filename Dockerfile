@@ -13,3 +13,4 @@ COPY tsconfig.json /app/
 COPY playwright.config.ts /app/
 RUN npm install
 CMD npm run test
+USER playwright
