@@ -2,17 +2,19 @@
 FROM mcr.microsoft.com/playwright:next
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN groupadd -r playwright && useradd -r -g playwright playwright
+RUN groupadd -r pwuser && useradd -r -g pwuser -G audio,video pwuser \
+    && mkdir -p /home/pwuser/Downloads \
+    && chown -R pwuser:pwuser /home/pwuser
+USER pwuser
 # Set the work directory for the application
-WORKDIR /app
+WORKDIR /home/pwuser
  
 # COPY the needed files to the app folder in Docker image
-COPY package.json /app/
-COPY package-lock.json /app/
+COPY package.json /home/pwuser/
+COPY package-lock.json /home/pwuser/
 
-COPY tests/ /app/tests/
-COPY tsconfig.json /app/
-COPY playwright.config.ts /app/
+COPY tests/ /home/pwuser/tests/
+COPY tsconfig.json /home/pwuser/
+COPY playwright.config.ts /home/pwuser/
 RUN npm install
 CMD npm run test
-USER playwright
