@@ -6,7 +6,7 @@ RUN chown -R playwrightuser:playwrightuser /home/playwrightuser
 # Set the work directory for the application
 
 WORKDIR /home/playwrightuser
- 
+
 # COPY the needed files to the app folder in Docker image
 COPY package.json .
 COPY package-lock.json .
@@ -15,7 +15,7 @@ COPY tests/ ./tests/
 COPY tsconfig.json .
 COPY playwright.config.ts .
 RUN npm ci
-
+RUN npx playwright install --with-deps chromium
+ENV CI='true'
 USER playwrightuser
-
 CMD npm run test
