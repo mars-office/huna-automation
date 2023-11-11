@@ -2,8 +2,11 @@
 FROM mcr.microsoft.com/playwright:next
 RUN apt-get -y update
 RUN apt-get -y upgrade
+RUN mkdir -p /home/pwuser
+RUN chown -R pwuser:pwuser /home/pwuser
 USER pwuser
 # Set the work directory for the application
+
 WORKDIR /home/pwuser
  
 # COPY the needed files to the app folder in Docker image
