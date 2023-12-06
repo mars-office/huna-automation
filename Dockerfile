@@ -19,3 +19,5 @@ RUN npx playwright install --with-deps chromium
 ENV CI='true'
 USER playwrightuser
 CMD npm run test
+ARG DEPLOYABLE_VERSION
+ENV DEPLOYABLE_VERSION=${DEPLOYABLE_VERSION}
