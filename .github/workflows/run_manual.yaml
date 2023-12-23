@@ -13,6 +13,10 @@ on:
         required: true
         default: 'dev'
 
+concurrency:
+  group: tests
+  cancel-in-progress: false
+
 jobs:
   docker_run:
     uses: mars-office/.github/.github/workflows/docker-run.yaml@main

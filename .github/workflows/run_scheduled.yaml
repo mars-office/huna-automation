@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: '0 3 * * *'
     
+concurrency:
+  group: tests
+  cancel-in-progress: false
 
 jobs:
   docker_run:
