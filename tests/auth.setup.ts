@@ -10,9 +10,9 @@ setup("authenticate", async ({ page }) => {
   await page.waitForURL(x => x.toString().startsWith("https://login.microsoftonline.com/"), {waitUntil: 'networkidle'});
   await page.getByLabel("Email, phone, or Skype").fill(process.env.HUNA_LOGIN_EMAIL!);
   await page.getByLabel("Email, phone, or Skype").press("Enter", {delay: 100});
-  await page.getByLabel("Password").fill(process.env.HUNA_LOGIN_PASSWORD!);
-  await page.getByLabel("Password").press("Enter", {delay: 100});
-  await page.getByRole("button", { name: "Yes" }).click({delay: 1000});
+  await page.getByPlaceholder("Password").fill(process.env.HUNA_LOGIN_PASSWORD!);
+  await page.getByPlaceholder("Password").press("Enter", {delay: 100});
+  await page.getByText("Yes").click({delay: 1000});
   await page.waitForURL(endpoint.HUNA_URL, {
     waitUntil: 'networkidle'
   });
