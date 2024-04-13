@@ -1,5 +1,5 @@
 # Get the latest version of Playwright
-FROM mcr.microsoft.com/playwright:v1.41.2
+FROM mcr.microsoft.com/playwright:v1.43.0
 RUN useradd -m -d /home/playwrightuser -s /bin/bash playwrightuser
 RUN mkdir -p /home/playwrightuser
 RUN chown -R playwrightuser:playwrightuser /home/playwrightuser
